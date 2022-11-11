@@ -6,37 +6,54 @@ Customization of bash terminal is done using tool called *Powerline* which uses 
 
 **Step 1:** You need to get dependency for adding custom PPAs. This is done by enabling common properties:
 
-```sudo apt install software-properties-common –y```
+```
+sudo apt install software-properties-common –y
+```
 
 **Step 2:** After this you need to move forward and add deadsnakes PPA to APT package manager sources list like:
 
-```add-apt-repository ppa:deadsnakes/ppa```
+```
+add-apt-repository ppa:deadsnakes/ppa
+```
 
 **Step 3:** Once the repository has been added you can now download pythons new version with command line
 
-```sudo apt install python3.10```
+```
+sudo apt install python3.10
+```
 
 **Step 4:** To make sure the right release has been installed, you need to verify it. Below is how you can do it:
 
-```python –version```
+```
+python –version
+```
+
 
 **Step 5:** You may also need to install *pip3*
 
-```sudo apt install python3-pip```
+```
+sudo apt install python3-pip
+```
 
 ## Intalling Powerline
 
 **Step1:** Install base powerline package
 
-```pip3 install --user powerline-status```
+```
+pip3 install --user powerline-status
+```
 
 **Step2:** Install git portion of powerline package
 
-```pip3 install --user powerline-gitstatus```
+```
+pip3 install --user powerline-gitstatus
+```
 
 **Step3:** Look for Poweline daemon file
 
-```find / 2> /dev/null | grep powerline-daemon```
+```
+find / 2> /dev/null | grep powerline-daemon
+```
 
 get the path of the **powerline-daemon** file and save it for later
 
@@ -44,7 +61,9 @@ eg. */home/user/.local/bin/powerline-daemon*
 
 **Step4:** Look for powerline.sh
 
-```find / 2> /dev/null | grep powerline.sh```
+```
+find / 2> /dev/null | grep powerline.sh
+```
 
 get the path of the **../bash/powerline.sh** file and save it for later
 
