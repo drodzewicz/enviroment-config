@@ -165,3 +165,58 @@ git clone https://github.com/powerline/fonts.git --depth=1 powerline_fonts
 Fonts that will work with powerline have * for Powerline* in the name of the font.
 
 exampe font: **Source Code Pro for Powerline Semibold** 
+
+# Manage multiple git accounts
+
+## Generate SSH key
+Go to **.ssh** directory
+```
+cd ~/.ssh
+```
+Generate ssh key using ssh-keygen
+```
+ssh-keygen -t rsa -C "<mail_name>@<host>" -f "<key_name>"
+```
+Add the created SSH key to your SSH-agent.
+```
+ssh-add -K ~/.ssh/<key_name>
+```
+
+*If you see an error message saying "Could not open a connection to your authentication agent" you might need to turn on your ssh-agent.*
+```
+eval `ssh-agent -s`
+```
+
+## Add generated key to *(Github/Gitlab/Bitbucket/...)* account(s)
+Copy public key and paste it in the ssh-key field on your chosen online respository hosting service.
+```
+cat ~/.ssh/<key_name>.pub
+```
+
+## Create a git config file
+Create a config file inside of the **~/.ssh** directory
+```
+touch ~/.ssh/config
+```
+Add following specification for each managed account
+```
+Host github.com-example
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/<key_name>
+```
+with following example you would have to add **-example** to the host when trying to clone the repository
+```
+git clone git@github.com-example:{repo-owner-user-name}/{repo-name}.git
+```
+
+## Mangae git config
+For global config use following commans *(for local config just skipp the **--global** flag)*
+```
+git config --global user.name "<name>"
+git config --global user.email "<email>"
+```
+or edit the file itself
+```
+nano ~/.gitconfig
+```
